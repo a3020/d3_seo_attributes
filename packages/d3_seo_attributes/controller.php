@@ -5,7 +5,7 @@ class D3SeoAttributesPackage extends Package {
 
 	protected $pkgHandle = 'd3_seo_attributes';
 	protected $appVersionRequired = '5.5';
-	protected $pkgVersion = '0.9.2.2';
+	protected $pkgVersion = '1.0';
 	
 	public function getPackageDescription() {
 		return t('Adds a character counter to the meta title and meta description fields');
