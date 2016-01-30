@@ -1,33 +1,39 @@
 <?php               
 defined('C5_EXECUTE') or die("Access Denied.");
 
-class D3SeoAttributesPackage extends Package {
+class D3SeoAttributesPackage extends Package 
+{
 
 	protected $pkgHandle = 'd3_seo_attributes';
 	protected $appVersionRequired = '5.5';
-	protected $pkgVersion = '1.0';
+	protected $pkgVersion = '1.0.1';
 	
-	public function getPackageDescription() {
+	public function getPackageDescription() 
+	{
 		return t('Adds a character counter to the meta title and meta description fields');
 	}
 	
-	public function getPackageName() {
+	public function getPackageName() 
+	{
 		return t('SEO Attributes');
 	}
 	
-	public function install(){
+	public function install()
+	{
 		$pkg = parent::install();
 		
 		$this->installEverything($pkg);
 	}
 	
-	public function upgrade(){
+	public function upgrade()
+	{
 		$pkg = parent::getByHandle($this->pkgHandle);
 		
 		$this->installEverything($pkg);
 	}
 	
-	public function uninstall(){
+	public function uninstall()
+	{
 		$db   = Loader::db();
 		$ct = AttributeType::getByHandle('text');
 		
@@ -46,7 +52,8 @@ class D3SeoAttributesPackage extends Package {
 		parent::uninstall();
 	}
 	
-	public function installEverything($pkg){
+	public function installEverything($pkg)
+	{
         Loader::model('collection_attributes');
         Loader::model('attribute/categories/collection');
         
